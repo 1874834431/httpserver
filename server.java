@@ -20,7 +20,7 @@ public class server {
 
             welcomeSocket = new ServerSocket(serverPort);
             System.out.println("Server started; listening at " + serverPort);
-
+            threads = new ServiceThread[Integer.parseInt(globaldata.config.get("ThreadPoolSize"))];
             if (implemethod == 0) {
                 // share welcomeSocket
                 for (int i = 0; i < threads.length; i++) {
