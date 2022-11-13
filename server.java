@@ -20,7 +20,7 @@ public class server {
 
             welcomeSocket = new ServerSocket(serverPort);
             System.out.println("Server started; listening at " + serverPort);
-            threads = new ServiceThread[Integer.parseInt(globaldata.config.get("ThreadPoolSize"))];
+
             if (implemethod == 0) {
                 // share welcomeSocket
                 for (int i = 0; i < threads.length; i++) {
@@ -58,8 +58,7 @@ public class server {
         BufferedReader reader;
         String[] spline;
         try {
-            reader = new BufferedReader(new FileReader(
-                    filename));
+            reader = new BufferedReader(new FileReader(filename));
             String line = reader.readLine();
             spline = line.split("\\s+");
             globaldata.config.put("Listen", spline[1]);
